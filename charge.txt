@@ -1,0 +1,332 @@
+R1
+SELECT Time,Count(*)  
+FROM Actvars A,Prodlevel P 
+WHERE A.Product=P.Code AND 
+P.Class='P70j55l4hybv' 
+GROUP BY  Time 
+R2
+SELECT Max(Time) 
+FROM Actvars A,Prodlevel P 
+WHERE A.Product=P.Code AND 
+P.Group='P66l03psafvq'   
+ R3
+SELECT Time,Avg(Unitssold) 
+FROM Actvars A,Timelevel T 
+WHERE A.Time=T.Tid AND (T.Quarter='Q1' Or 
+T.Quarter='Q2') 
+GROUP BY  Time 
+R4
+SELECT Division,Count(*)  
+FROM Actvars A,Prodlevel P 
+WHERE  A.Product=P.Code AND 
+P.Group='S7jweujryiwn'  
+GROUP BY  Division 
+R5
+SELECT Time,Count(*)  
+FROM Actvars A,Prodlevel P 
+WHERE  A.Product=P.Code AND 
+P.Family='Urt1b3vosshh' 
+GROUP BY  Time 
+R6
+SELECT Year,Sum(Dollarcost) 
+FROM Actvars A,Prodlevel P, Timelevel T 
+WHERE  A.Product=P.Code AND A.Time=T.Tid 
+AND P.Group='P66l03psafvq'   
+GROUP BY  Year 
+R7
+
+SELECT Retailer,Avg(Unitssold) 
+FROM Actvars A,Prodlevel P ,Custlevel C  
+WHERE A.Product=P.Code AND 
+A.Customer=C.Store AND  P.Division = 
+'E6qf1ihdev0e' 
+GROUP BY  Retailer 
+R8
+
+SELECT Customer,Avg(Unitssold) 
+FROM Actvars A,Prodlevel P 
+WHERE  A.Product=P.Code AND 
+P.Family='Ixg0c4hqg2dw' AND 
+P.Group='P66l03psafvq'   
+GROUP BY  Customer 
+R9
+SELECT Product,Count(*)  
+FROM Actvars A,Timelevel T 
+WHERE  A.Time=T.Tid AND T.Month='1' AND 
+(T.Quarter='Q3' Or T.Quarter='Q4') 
+GROUP BY  Product 
+R10
+SELECT Avg(Unitssold) 
+FROM Actvars A,Prodlevel P 
+WHERE A.Product=P.Code AND 
+P.Family='Urt1b3vosshh'  AND 
+P.Group='P66l03psafvq'   
+R11
+
+SELECT Count(*)  
+FROM Actvars A,Timelevel T 
+WHERE A.Time=T.Tid AND  T.Year='1995' 
+R12
+SELECT Avg(Unitssold) 
+FROM Actvars A,Timelevel T 
+WHERE  A.Time=T.Tid AND  T.Year='1996' 
+R13
+SELECT Product,Count(*)  
+FROM Actvars A,Timelevel T 
+WHERE A.Time=T.Tid  AND T.Year = '1995'   
+GROUP BY  Product 
+R14
+SELECT Count(*)  
+FROM Actvars A,Prodlevel P 
+WHERE  A.Product=P.Code AND  P.Division = 
+'E6qf1ihdev0e' 
+R15
+SELECT Customer, Time,Min(Unitssold)  
+FROM Actvars A,Timelevel T, Custlevel C 
+WHERE  A.Customer=C.Store AND A.Time=T.Tid 
+AND (T.Quarter='Q3' Or T.Quarter='Q4') AND  
+C.Gender='M' 
+GROUP BY Customer, Time 
+R16
+SELECT Division,Sum(Dollarcost) 
+FROM Actvars A,Timelevel T ,Prodlevel P  
+WHERE A.Time=T.Tid  AND A.Product=P.Code  
+AND (T.Month='1' Or T.Month='2') 
+ AND P.Class='P70j55l4hybv' 
+GROUP BY Division 
+R17
+SELECT Month, Avg(Unitssold) 
+FROM Actvars A,Timelevel T, Custlevel C 
+WHERE  A.Time=T.Tid AND A.Customer=C.Store 
+AND C.Gender='M' 
+GROUP BY Month 
+R18
+SELECT Count(*)  
+FROM Actvars A,Chanlevel Ch,Timelevel T 
+WHERE  A.Channel=Ch.Base AND  A.Time=T.Tid 
+AND  (T.Quarter='Q1' Or T.Quarter='Q2') AND  
+T.Year='1995' AND Ch.All ='Bcdefghijklm' 
+
+R19
+SELECT  Product, Sum(Dollarcost)  
+FROM Actvars A,Timelevel T, Prodlevel P 
+WHERE A.Time=T.Tid AND A.Product=P.Code 
+AND (T.Month='1' Or T.Month='2') AND  
+(T.Quarter='Q1' Or T.Quarter='Q2') AND 
+P.Division = 'E6qf1ihdev0e' 
+GROUP BY  Product 
+R20
+SELECT Year, Max(Unitssold) 
+FROM Actvars A,Prodlevel P, Custlevel C, 
+Timelevel T  
+WHERE  A.Time=T.Tid AND A.Customer=C.Store 
+AND A.Product=P.Code AND P.Division = 
+'E6qf1ihdev0e' AND C.Retailer ='Zstv6mycbs7u'  
+GROUP BY Year 
+R21
+
+SELECT Product,Time,Avg(Unitssold) 
+FROM Actvars A,Timelevel T, Custlevel C 
+WHERE  A.Time=T.Tid AND A.Customer=C.Store 
+AND (T.Month='1' Or T.Month='2') AND 
+C.Gender='F' 
+GROUP BY Product,Time 
+R22
+SELECT Year,Month, Max(Unitssold) 
+FROM Actvars A,Prodlevel P ,Timelevel T  
+WHERE  A.Product=P.Code AND A.Time=T.Tid 
+AND  (T.Month='1' Or T.Month='2') AND 
+P.Division = 'E6qf1ihdev0e'  
+GROUP BY Year,Month 
+R23
+SELECT Channel, Sum(Dollarcost)  
+FROM Actvars A,Custlevel C,Prodlevel P 
+WHERE  A.Customer=C.Store AND  
+A.Product=P.Code AND  P.Class='P70j55l4hybv' 
+AND C.Retailer='M5tahn7gumlt' AND 
+C.Gender='F' 
+GROUP BY Channel 
+R24
+SELECT Class, Month, Min(Unitssold) 
+FROM Actvars A,Custlevel C, Prodlevel P, 
+Timelevel T 
+WHERE  A.Product=P.Code AND  
+A.Customer=C.Store AND  A.Time=T.Tid AND 
+C.City='Dijon' AND C.Retailer ='Zstv6mycbs7u' 
+GROUP BY Class, Month 
+R25
+
+SELECT Count(*)  
+FROM Actvars A,Custlevel C 
+WHERE  A.Customer=C.Store AND  
+C.City='Dijon' 
+R26
+
+SELECT Max(Unitssold)  
+FROM Actvars A,Chanlevel Ch  
+WHERE  A.Channel=Ch.Base AND Ch.All 
+='Efghijklmnop' 
+R27
+
+SELECT Time, Avg(Unitssold) 
+FROM Actvars A,Prodlevel P, Custlevel C 
+WHERE  A.Customer=C.Store AND 
+A.Product=P.Code AND P.Group='S7jweujryiwn'  
+AND C.Retailer ='Zstv6mycbs7u'  
+GROUP BY Time  
+R28
+
+SELECT Time,Count(*)  
+FROM Actvars A,Chanlevel Ch,Custlevel C 
+WHERE  A.Channel=Ch.Base AND 
+A.Customer=C.Store AND  C.City='Dijon' AND 
+Ch.All ='Efghijklmnop'  
+GROUP BY Time 
+R29
+SELECT Sum(Dollarcost)  
+FROM Actvars A, Prodlevel P,Timelevel T 
+WHERE   A.Product=P.Code AND  A.Time=T.Tid 
+AND (T.Quarter='Q1' Or T.Quarter='Q2') AND 
+P.Division = 'Phpet5vw6slg' 
+R30
+SELECT Sum(Dollarcost), Avg(Unitssold)  
+FROM Actvars A, Custlevel C,Timelevel T 
+WHERE  A.Customer=C.Store AND  A.Time=T.Tid 
+AND (T.Month = '1' Or T.Month = '2' ) AND 
+C.Retailer ='Zstv6mycbs7u' AND C.City='Dijon'  
+R31
+
+SELECT Count(*) 
+FROM Actvars A,Custlevel C 
+WHERE  A.Customer=C.Store  AND C.Gender='F' 
+R32
+
+SELECT Avg(Dollarcost) 
+FROM Actvars A,Custlevel C  
+WHERE  A.Customer=C.Store  AND  
+C.City='Dijon' AND C.Gender='M'  
+R33
+SELECT Time, Max(Unitssold)  
+FROM Actvars A, Chanlevel H,Custlevel 
+C,Timelevel T 
+WHERE  A.Customer=C.Store AND  
+A.Channel=H.Base AND A.Time=T.Tid AND 
+T.Year = '1996' AND  (T.Month = '1' Or T.Month 
+= '2' )  AND C.City='Paris' AND C.Retailer 
+='Zstv6mycbs7u' AND H.All='Bcdefghijklm' 
+GROUP BY Time 
+R34
+SELECT Month, All, Time, Sum(Dollarcost)  
+FROM Actvars A, Custlevel C,Timelevel T 
+,Chanlevel H  
+WHERE  A.Customer=C.Store AND  
+A.Channel=H.Base AND  A.Time=T.Tid AND T. 
+Month='2' AND T.Year='1995'  AND C.Retailer
+ 
+='Coghfprojp9z' AND (C.City='Paris'or 
+C.City='Poitiers') 
+GROUP BY Month,All, Time 
+R35
+SELECT Count(*)  
+FROM Actvars A,Chanlevel Ch,Timelevel T 
+WHERE  A.Channel=Ch.Base AND  A.Time=T.Tid 
+AND  (T.Quarter='Q1' Or T.Quarter='Q2') AND  
+T.Month = '7'  AND Ch.All ='Bcdefghijklm' 
+R36
+SELECT Division,Avg(Unitssold) 
+FROM Actvars A,Timelevel T, Prodlevel P  
+WHERE  A.Time=T.Tid  AND A.Product=P.Code  
+AND T.Month='7' 
+GROUP BY  Division
+R37
+
+SELECT Product, Count(*)  
+FROM Actvars A,Chanlevel Ch, Custlevel C 
+WHERE  A.Channel=Ch.Base AND  
+A.Customer=C.Store AND Ch.All ='Bcdefghijklm' 
+AND C.Retailer ='Zstv6mycbs7u'  
+GROUP BY Product 
+R38
+
+SELECT Count(*)  
+FROM Actvars A,Chanlevel Ch,Timelevel T, 
+Custlevel C 
+WHERE  A.Channel=Ch.Base AND  A.Time=T.Tid 
+AND A.Customer=C.Store AND C.Gender='M'  
+AND T.Month = '7'  AND Ch.All ='Bcdefghijklm' 
+R39
+
+SELECT Count(*) 
+FROM Actvars A, Prodlevel P,Timelevel T, 
+Custlevel C 
+WHERE  A.Product=P.Code AND 
+A.Customer=C.Store AND A.Time=T.Tid AND 
+P.Group='S7jweujryiwn' AND  (T.Quarter='Q3' 
+Or T.Quarter='Q4') AND C.Gender='M' 
+R40
+SELECT Month, Sum(Dollarcost) 
+FROM Actvars A,Custlevel C, Timelevel T, 
+Prodlevel P 
+WHERE  A.Customer=C.Store  AND  
+A.Product=P.Code AND A.Time=T.Tid AND 
+C.Gender='M' AND C.Retailer='Zstv6mycbs7u'  
+AND P.Family='Urt1b3vosshh' 
+GROUP BY Month 
+R41
+SELECT  Product, Sum(Dollarcost)  
+FROM Actvars A,Timelevel T, Prodlevel P, 
+Chanlevel H 
+WHERE A.Time=T.Tid AND A.Product=P.Code 
+AND A.Channel=H.Base  AND  T.Year = '1996' 
+AND P.Class= 'P70j55l4hybv' AND  
+H.All='Efghijklmnop' AND 
+P.Family='Hnmc1go57w3y' 
+GROUP BY  Product 
+R42
+SELECT Min(Unitssold) 
+FROM Actvars A, Chanlevel H,Custlevel 
+C,Prodlevel P,Timelevel T 
+WHERE  A.Customer=C.Store AND  
+A.Product=P.Code AND  A.Channel=H.Base AND 
+A.Time=T.Tid AND (T.Month = '1' Or T.Month = 
+'2' ) AND T.Year='1996' AND 
+P.Family='Ixg0c4hqg2dw' AND 
+H.All='Bcdefghijklm' AND T.Quarter='Q2' 
+R43
+SELECT Count(*) 
+FROM Actvars A, Custlevel C, Prodlevel P  
+WHERE A.Product=P.Code AND 
+A.Customer=C.Store AND  
+P.Family='Hnmc1go57w3y' AND 
+P.Division = 'E6qf1ihdev0e' AND 
+P.Group='P66l03psafvq'  AND C.City='Dijon'  
+R44
+
+SELECT Gender,Max(Dollarcost) 
+FROM Actvars A,Custlevel C, Prodlevel P  
+WHERE  A.Customer=C.Store  AND  
+A.Product=P.Code AND 
+C.Retailer='Zstv6mycbs7u' AND 
+P.Division = 'E6qf1ihdev0e'  
+GROUP BY Gender 
+R45
+
+SELECT Max(Dollarcost) 
+FROM Actvars A, Prodlevel P  
+WHERE A.Product=P.Code AND 
+P.Family='Hnmc1go57w3y' AND P.Division = 
+'E6qf1ihdev0e'  
+R46
+SELECT Sum(Dollarcost) 
+FROM Actvars A, Timelevel T, Custlevel C 
+WHERE  A.Time=T.Tid AND A.Customer=C.Store 
+AND C.City='Dijon'  AND  
+(T.Quarter='Q1' Or T.Quarter='Q2') 
+R47
+
+SELECT  Product, Sum(Dollarcost)  
+FROM Actvars A,Timelevel T, Prodlevel P 
+WHERE A.Time=T.Tid AND A.Product=P.Code 
+AND (T.Quarter='Q1' Or T.Quarter='Q2') AND 
+P.Group='S7jweujryiwn'  
+GROUP BY  Product

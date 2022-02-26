@@ -1,0 +1,1 @@
+( ap-description  :name "server:1099/JADE" :ap-services (set ( ap-service  :addresses (sequence))))
